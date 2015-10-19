@@ -1,12 +1,19 @@
 
 
 #import "AppDelegate.h"
+@import HockeySDK;
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"b5ae80734deeba8b1d2c8c37756fca79"];
+    // Do some additional configuration if needed here
+    [[BITHockeyManager sharedHockeyManager] startManager];
+    [[BITHockeyManager sharedHockeyManager].authenticator
+     authenticateInstallation];
+
     return YES;
 }
 							
